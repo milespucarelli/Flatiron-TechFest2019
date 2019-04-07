@@ -25,7 +25,7 @@ function identifyElement(e, targetArray) {
     } else if (t.includes("ads") || t.includes("promo")) {
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       e.target.style.border = "3px red dotted";
-    } else if (t.includes("button")) {
+    } else if (t.includes("button") || t.includes("btn")) {
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
     } else if (t === "a") {
@@ -37,7 +37,7 @@ function identifyElement(e, targetArray) {
 }
 
 function removeInfo() {
-  setTimeout(function(){ infoBox.style.display = "none" }, 2000);
+  setTimeout(function(){ infoBox.style.display = "none" }, 3000);
 }
 
 
