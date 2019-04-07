@@ -14,6 +14,7 @@ document.body.prepend(infoBox);
 function identifyElement(e, targetArray) {
   infoBox.style.left = e.clientX + "px";
   infoBox.style.top = e.clientY + "px";
+  infoBox.style.display = "block";
   targetArray.find(function(t){
     if (t.includes("input") && !t.includes("button")) {
       infoBox.innerHTML = "This is an input field, enter your information";
