@@ -22,8 +22,12 @@ function identifyElement(e, targetArray) {
       console.log("dont click on this!")
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       e.target.style.border = "3px red dotted";
+<<<<<<< HEAD
     } else if (t.includes("button")) {
       console.log("this is a button")
+=======
+    } else if (t.includes("button") || t.includes("btn")) {
+>>>>>>> 754894e30d0fc75fa81d7aa1d96f6e3c20c18a12
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
     } else if (t.includes("img")) {
