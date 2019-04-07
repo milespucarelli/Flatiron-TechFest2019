@@ -1,4 +1,4 @@
-const adServers =
+const adServersOLD =
 ["101com.com",
 "101order.com",
 "123found.com",
@@ -2964,6 +2964,8 @@ const adServers =
 "zqtk.net",
 "zy16eoat1w.com",
 "zzhc.vnet.cn"]
+
+const adServers = require('./adServers');
 
 const initText = "Welcome to Web Atlas. Hover over something to learn more about it."
 const infoBox = document.createElement("div");
