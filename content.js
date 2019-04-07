@@ -2984,7 +2984,6 @@ function identifyElement(e, targetArray) {
   infoBox.style.top = e.clientY + "px";
   infoBox.style.display = "block";
 
-
   targetArray.find(function(t){
     if (t.includes("input") && !t.includes("button")) {
       infoBox.innerHTML = "This is an input field, enter your information";
@@ -2992,20 +2991,27 @@ function identifyElement(e, targetArray) {
     } else if (t.includes("nav")) {
       infoBox.innerHTML = "This is a navigation element. It helps you move around the website.";
       e.target.style.border = "3px purple dotted";
-    } else if (t.includes("ads") || t.includes("promo")) {
-      infoBox.innerHTML = "This is an advertisement. You should ignore it."
-      e.target.style.border = "3px red dotted";
     } else if (t.includes("button") || t.includes("btn")) {
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
     } else if (t === "a") {
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
       e.target.style.border = "3px yellow dotted";
-    } else {
-      return null;
     }
   })
-  console.log(adServers);
+
+  for (i = 0; i < adServers.length; i++) {
+    if (e.target.src.includes(adServers[i])) {
+      infoBox.innerHTML = "This is an advertisement. You should ignore it."
+      e.target.style.border = "3px red dotted";
+    } else if (e.target.parentElement.tagName === "A") {
+      infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
+      e.target.style.border = "3px yellow dotted";
+    } else if (e.target.tagName === "IMG"){
+      infoBox.innerHTML = "This is a regular image."
+      e.target.style.border = "3px blacak dotted"
+    }
+  }
   removeInfo();
 }
 
