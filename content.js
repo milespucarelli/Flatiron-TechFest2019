@@ -19,25 +19,21 @@ function identifyElement(e, targetArray) {
     if (t.includes("input") && !t.includes("button")) {
       infoBox.innerHTML = "This is an input field, enter your information";
       e.target.style.border = "3px blue dotted";
-      removeInfo();
     } else if (t.includes("nav")) {
       infoBox.innerHTML = "This is a navigation element. It helps you move around the website.";
       e.target.style.border = "3px purple dotted";
-      removeInfo();
     } else if (t.includes("ads") || t.includes("promo")) {
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       e.target.style.border = "3px red dotted";
-      removeInfo();
     } else if (t.includes("button")) {
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
-      removeInfo();
     } else if (t === "a") {
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
       e.target.style.border = "3px yellow dotted";
-      removeInfo();
     }
   })
+  removeInfo();
 }
 
 function removeInfo() {
