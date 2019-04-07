@@ -20,28 +20,33 @@ function identifyElement(e, targetArray) {
       console.log("this is the input and not the button")
       infoBox.innerHTML = "This is an input field, enter your information";
       e.target.style.border = "3px blue dotted";
+      removeInfo();
     } else if (t.includes("nav")) {
       console.log("this is a nav")
       infoBox.innerHTML = "This is a navigation element. It helps you move around the website.";
       e.target.style.border = "3px purple dotted";
+      removeInfo();
     } else if (t.includes("ads") || t.includes("promo")) {
       console.log("dont click on this!")
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       e.target.style.border = "3px red dotted";
+      removeInfo();
     } else if (t.includes("button")) {
       console.log("this is a button")
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
+      removeInfo();
     } else if (t === "a") {
       console.log("this is a link")
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
       e.target.style.border = "3px yellow dotted";
+      removeInfo();
     }
   })
 }
 
 function removeInfo() {
-  setTimeout(function(){ infoBox.style.display = "none" }, 1000);
+  setTimeout(function(){ infoBox.style.display = "none" }, 2000);
 }
 
 
