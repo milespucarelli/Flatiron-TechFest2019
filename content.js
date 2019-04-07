@@ -11,34 +11,31 @@ infoBox.style.position = "fixed";
 infoBox.style.display = "none";
 document.body.prepend(infoBox);
 
-function identifyElement(target, targetArray) {
-  infoBox.style.display = "";
+function identifyElement(e, targetArray) {
+  infoBox.style.left = e.clientX + "px";
+  infoBox.style.top = e.clientY + "px";
+  infoBox.style.display = "block";
   targetArray.find(function(t){
     if (t.includes("input") && !t.includes("button")) {
       console.log("this is the input and not the button")
       infoBox.innerHTML = "This is an input field, enter your information";
-      target.style.border = "3px blue dotted";
-      removeInfo()
+      e.target.style.border = "3px blue dotted";
     } else if (t.includes("nav")) {
       console.log("this is a nav")
       infoBox.innerHTML = "This is a navigation element. It helps you move around the website.";
-      target.style.border = "3px purple dotted";
-      removeInfo()
+      e.target.style.border = "3px purple dotted";
     } else if (t.includes("ads") || t.includes("promo")) {
       console.log("dont click on this!")
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
-      target.style.border = "3px red dotted";
-      removeInfo()
+      e.target.style.border = "3px red dotted";
     } else if (t.includes("button")) {
       console.log("this is a button")
       infoBox.innerHTML = "This is a button you can click."
-      target.style.border = "3px green dotted";
-      removeInfo()
+      e.target.style.border = "3px green dotted";
     } else if (t === "a") {
       console.log("this is a link")
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
-      target.style.border = "3px yellow dotted";
-      removeInfo()
+      e.target.style.border = "3px yellow dotted";
     }
   })
 }
@@ -49,9 +46,10 @@ function removeInfo() {
 
 
 document.addEventListener("mouseover", function(e){
+  console.log(e.clientX);
   let targetArray = [e.target.tagName.toLowerCase(), e.target.className, e.target.id]
   // console.log("this is what we will put into the identify function", targetArray)
-  identifyElement(e.target, targetArray)
+  identifyElement(e, targetArray)
 });
 
 
