@@ -1,21 +1,22 @@
 {
-  "name": "Getting Started Example",
+  "name": "Web Atlas",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Marks up your webpages with helpful hints for interacting with the site",
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "page_action": {
-    "default_popup": "popup.html",
+  "browser_action": {
     "default_icon": {
       "16": "images/get_started16.png",
       "32": "images/get_started32.png",
       "48": "images/get_started48.png",
       "128": "images/get_started128.png"
-    }
+    },
+    "default_title": "Web Atlas",
+    "default_popup": "popup.html"
   },
   "content_scripts": [
    {
