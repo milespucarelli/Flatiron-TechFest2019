@@ -7,7 +7,7 @@ infoBox.style.letterSpacing = "2px";
 infoBox.style.zIndex = 9999999999999;
 infoBox.style.backgroundColor = "white";
 infoBox.style.margin = "15px";
-infoBox.style.position = "absolute";
+infoBox.style.position = "fixed";
 infoBox.style.display = "none";
 document.body.prepend(infoBox);
 
@@ -17,20 +17,29 @@ function identifyElement(target, targetArray) {
     if (t.includes("input") && !t.includes("button")) {
       infoBox.innerHTML = "This is an input field, enter your information";
       target.style.border = "3px blue dotted";
+      removeInfo()
     } else if (t.includes("nav")) {
       infoBox.innerHTML = "This is a navigation element. It helps you move around the website.";
       target.style.border = "3px purple dotted";
+      removeInfo()
     } else if (t.includes("ads") || t.includes("promo")) {
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       target.style.border = "3px red dotted";
+      removeInfo()
     } else if (t.includes("button")) {
       infoBox.innerHTML = "This is a button you can click."
       target.style.border = "3px green dotted";
+      removeInfo()
     } else if (t === "a") {
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
       target.style.border = "3px yellow dotted";
+      removeInfo()
     }
   })
+}
+
+function removeInfo() {
+  setTimeout(function(){ infoBox.style.display = "none" }, 1000);
 }
 
 
