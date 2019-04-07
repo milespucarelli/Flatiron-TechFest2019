@@ -3001,7 +3001,7 @@ function identifyElement(e, targetArray) {
   })
 
   for (i = 0; i < adServers.length; i++) {
-    if (e.target.src.includes(adServers[i])) {
+    if ((e.target.tagName === "IMG" && e.target.src.includes(adServers[i])) || e.target.id.includes("ads")) {
       infoBox.innerHTML = "This is an advertisement. You should ignore it."
       e.target.style.border = "3px red dotted";
     } else if (e.target.parentElement.tagName === "A") {
