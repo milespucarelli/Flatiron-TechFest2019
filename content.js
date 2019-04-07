@@ -1,14 +1,8 @@
 const initText = "Welcome to Web Atlas. Hover over something to learn more about it."
 const infoBox = document.createElement("div");
 infoBox.innerHTML = initText;
-infoBox.style.padding = "10px";
-infoBox.style.fontSize = "18px";
-infoBox.style.letterSpacing = "2px";
-infoBox.style.zIndex = 9999999999999;
-infoBox.style.backgroundColor = "white";
-infoBox.style.margin = "15px";
-infoBox.style.position = "fixed";
-infoBox.style.display = "none";
+
+infoBox.setAttribute("style", "padding: 10px; font-size: 18px; letter-spacing: 2px; z-index: 9999999999999; background-color: white; margin: 15px; position: fixed; display: none")
 document.body.prepend(infoBox);
 
 function identifyElement(e, targetArray) {
@@ -32,6 +26,9 @@ function identifyElement(e, targetArray) {
       console.log("this is a button")
       infoBox.innerHTML = "This is a button you can click."
       e.target.style.border = "3px green dotted";
+    } else if (t.includes("img")) {
+      infoBox.innerHTML = "This is an image! If you right click it you can have the option to save it!"
+      e.target.style.border = "3px green pink";
     } else if (t === "a") {
       console.log("this is a link")
       infoBox.innerHTML = "This is a link. Clicking on this will redirect you."
@@ -42,7 +39,7 @@ function identifyElement(e, targetArray) {
 }
 
 function removeInfo() {
-  setTimeout(function(){ infoBox.style.display = "none" }, 2000);
+  setTimeout(function(){ infoBox.style.display = "none" }, 3000);
 }
 
 
